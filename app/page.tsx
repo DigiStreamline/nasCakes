@@ -180,6 +180,17 @@ export default function Home() {
     z-index: 3;
   }
   .hero-img-col{ background: transparent; }
+  .hero-bg-img{
+    object-position: 60% center;
+    transform: scale(1.04);
+  }
+  .hero-bg-overlay{
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 25% 40%, rgba(28,10,43,0.35), transparent 32%), linear-gradient(to right, rgba(28,10,43,0.55) 0%, rgba(28,10,43,0.12) 40%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
 }
 .hero-inner{ background: #1C0A2B; }
 
@@ -188,12 +199,11 @@ export default function Home() {
 @media(max-width:767px){
   .hero-inner{ background: #1C0A2B; }
   .hero-img-col{ min-height: 300px; opacity: 0.5; }
-  .hero-text-col{ padding: 100px 24px 48px !important; }
-}
-
-
-      `}</style>
-
+  .hero-bg-img{
+    object-position: 50% center;
+    transform: scale(1.02);
+  }
+`}</style>
       <PageLoader />
 
       {/* ── Nav ───────────────────────────────────────────────────────────── */}
@@ -255,7 +265,7 @@ export default function Home() {
         <div className="hero-inner">
 
           {/* Left: text col (mobile: bottom overlay) */}
-          <div className="hero-text-col" style={{ padding: "120px 24px 56px", position: "relative", zIndex: 2 }}>
+          <div className="hero-text-col" style={{ padding: "300px 24px 56px", position: "relative", zIndex: 2 }}>
             <p style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: "#F2C4CE", marginBottom: 14, fontWeight: 500 }}>East Burdwan, West Bengal</p>
             <h1 style={{ fontFamily: "'Playfair Display',serif", fontSize: "clamp(38px,7vw,68px)", lineHeight: 1.05, fontStyle: "italic", fontWeight: 400, color: "#FDF6F0", marginBottom: 20 }}>
               Made with passion,<br /><span style={{ color: "#F2C4CE" }}>baked for you.</span>
@@ -275,19 +285,21 @@ export default function Home() {
           </div>
 
           <img
+            className="hero-bg-img"
             src="/photos/founder.jpg"
-            alt="A beautiful NasCakes creation"
+            alt="Founder at NasCakes"
             style={{
               position: "absolute",
               inset: 0,
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              opacity: 1,
-              zIndex: 1
+              opacity: 0.5,
+              // objectPosition: "50% bottom",
+              zIndex: 0
             }}
           />
-
+          <div className="hero-bg-overlay" />
         </div>
       </section>
 
