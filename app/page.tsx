@@ -203,7 +203,8 @@ export default function Home() {
     object-position: 50% center;
     transform: scale(1.02);
   }
-`}</style>
+`}
+</style>
       <PageLoader />
 
       {/* ── Nav ───────────────────────────────────────────────────────────── */}
